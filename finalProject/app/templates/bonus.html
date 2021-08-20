@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+.certificate-card-footer {
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 0px;
+}
+.certificate-card-footer span.certificate-tag {
+    background: #bced09;
+    color: black;
+    vertical-align: middle;
+    align-items: center;
+    border-radius: 40px;
+    display: inline-flex;
+    font-size: 30px;
+    height: 60px;
+    width: 1000px;
+    justify-content: center;
+    white-space: nowrap;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    margin-bottom: 30px;
+}
+span.certificate-tag:hover {
+    background: white;
+    color: black;
+}
+.fit_gap{
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: left;
+    padding-left: 40px;
+    margin-top: 30px;
+}
+
+.data_info {
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: white;
+  width: 97%;
+  margin-left: 20px;
+  margin-bottom: 23px;
+}
+th, td {
+  text-align: left;
+  padding: 8px 16px;
+   border: 2px solid white;
+}
+.observation{
+    width: 10px;;
+}
+</style>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="home_content">
+        <div class="text">Bonus</div>
+        <div class="certificate-card-footer">
+            <div class="fit_gap">This will show you all the items in the dataset.</div>
+            <a href='http://127.0.0.1:8000/get_api/' target="_blank" style="text-decoration: none; ">
+                <span class="dark-mode certificate-tag">Click to get all Items.</span>
+            </a>
+        </div>
+        <div class="certificate-card-footer">
+            <div class="fit_gap">Change id number between 1 to 200 in the url.</div>
+            <a href='http://127.0.0.1:8000/get_id/99/' target="_blank" style="text-decoration: none; ">
+                <span class="dark-mode certificate-tag">Click to get item by ID.</span>
+            </a>
+        </div>
+        <div class="fit_gap">Fit Gap Analysis</div>
+        <div>
+            <table class="data_info">
+                <tr>
+                    <th class="observation">Area Under Construction</th>
+                    <td class="obs_detail" colspan="2">We are investigating about the automobile dataset and analyzing
+                        which car is best to buy on the basis of different factors.
+                    </td>
+                </tr>
+                <tr>
+                    <th class="observation">Desired Data</th>
+                    <th class="observation">Current State</th>
+                    <th class="observation">Action Steps</th>
+                </tr>
+                <tr>
+                    <td class="obs_detail">
+                        1. Car Quality<br>
+                        2. Car Mileage<br>
+                        3. Car Price<br>
+                        4. HorsePower<br>
+                        5. Fuel types and other
+                    </td>
+                    <td class="obs_detail">Got the data, Transferred all the data into database which is PostgreSQL.
+                        Visual are done using Google Charts. Created an API that can access my all data as well as with
+                        ID.
+                    </td>
+                    <td class="obs_detail">Need to figure how to get the data into Google Chart particularly in Django.
+                    </td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</body>
+</html>

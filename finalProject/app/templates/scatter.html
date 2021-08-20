@@ -1,0 +1,75 @@
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Engine_Size', 'City_MPG'],
+                [61, 47], [70, 17], [79, 38], [80, 16], [90, 38], [90, 37], [90, 31], [90, 37], [91, 30], [91, 31],
+                [92, 49], [92, 31], [92, 30], [92, 37], [92, 35], [97, 31], [97, 31], [97, 37], [97, 37], [97, 33],
+                [98, 24], [98, 31], [98, 30], [98, 29], [98, 26], [103, 45], [108, 23],[108, 26],
+                [108, 32],[ 108, 28],[ 108, 26],[ 108, 24],[ 108, 25],[ 108, 23],[ 109, 24],
+                [109, 27], [ 109, 26], [ 109, 24], [ 109, 25], [ 109, 25], [ 110, 27], [ 110, 24],
+                [110, 34], [ 110, 38], [ 110, 30], [ 111, 24], [ 119, 24], [ 120, 27], [ 120, 19],
+                [120, 21], [ 120, 19], [ 121, 24], [ 121, 24], [ 121, 36], [ 121, 29], [ 121, 27],
+                [130, 21], [ 130, 17], [ 131, 17], [ 131, 23], [ 132, 23], [ 134, 31], [ 134, 18],
+                [136, 18], [ 136, 19], [ 136, 19], [ 140, 19], [ 141, 23], [ 145, 26], [ 146, 24],
+                [151, 19], [ 152, 19], [ 152, 28], [ 152, 25], [ 156, 19], [ 161, 19], [ 164, 21],
+                [171, 20], [ 173, 18], [ 181, 17], [ 181, 19], [ 183, 22], [ 194, 17], [ 209, 16],
+                [234, 16], [ 258, 15], [ 304, 14], [ 308, 14], [ 326, 13]
+            ]);
+
+            var options = {
+                title: 'City Mileage',
+                titleTextStyle: {
+                        color: 'white',
+                        fontSize: 17
+                        },
+                hAxis: {
+                    title: 'Engine Size',
+                    titleTextStyle: {color: 'white'},
+                    gridlines: { color: 'transparent' },
+                    textStyle: { color: 'grey' },
+                },
+                vAxis: {
+                    title: 'City Count',
+                    titleTextStyle: {color: 'white'},
+                    gridlines: { color: 'transparent' },
+                    textStyle: { color: 'grey' },
+                },
+                colors: ['white'],
+                backgroundColor: '#1f1f1f',
+                legend: { position: 'top', alignment: 'end'},
+                legendTextStyle: { color: '#FFF', fontSize: 15},
+                pointSize: 25,
+                dataOpacity: 0.7,
+                chartArea:{
+                        left:100,
+                        top:70,
+                        bottom:60,
+                        right:70,
+                        width:"100%",
+                        height:"100%"
+                },
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('scatter'));
+
+            chart.draw(data, options);
+        }
+    </script>
+  </head>
+<style>
+#scatter{
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 500px;
+    width: 685px;
+}
+</style>
+</html>

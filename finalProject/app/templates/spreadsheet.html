@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+.home_content{
+    position: absolute;
+    width: calc(100% - 78px);
+    left: 78px;
+    background: black;
+    box:shadow: 0 5px 10px rgba(0,0,0,0.2px);
+    transition: all 0.5s ease;
+}
+.sidebar.active ~ .home_content{
+  z-index: 100;
+}
+.home_content .text{
+  font-size: 50px;
+  font-weight: 900;
+  color: white;
+  margin: 12px;
+  padding-left: 20px;
+}
+.sidebar.active ~ .home_content{
+  width: calc(100% - 240px);
+  left: 240px;
+}
+
+
+.tableFixHead{
+    overflow-y: auto;
+    height: 350px;
+    margin: 20px;
+}
+.tableFixHead thread th{
+    position: sticky;
+    top: 0;
+}
+table{
+    border-collapse: collapse;
+    width: 100px;
+}
+th, td{
+    padding: 8px 16px;
+    border: 2px solid white;
+}
+.spreedsheet_head{
+    background: white;
+    border: 2px solid black;
+}
+.spreedsheet_row{
+    color: white;
+}
+
+
+.data_info {
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: white;
+  width: 97%;
+  margin-left: 20px;
+  margin-bottom: 23px;
+}
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+.observation{
+    width: 10px;;
+}
+</style>
+<body>
+    {% include 'sidebar.html' %}
+    <div class="home_content">
+        <div class="text">SpreedSheet</div>
+        <div class="tableFixHead">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="spreedsheet_head">Symboling</th>
+                        <th class="spreedsheet_head">Normalized_Losses</th>
+                        <th class="spreedsheet_head">Make</th>
+                        <th class="spreedsheet_head">Num_of_Doors</th>
+                        <th class="spreedsheet_head">Body_Style</th>
+                        <th class="spreedsheet_head">Drive_Wheels</th>
+                        <th class="spreedsheet_head">Engine_Location</th>
+                        <th class="spreedsheet_head">Wheel_Base</th>
+                        <th class="spreedsheet_head">Length</th>
+                        <th class="spreedsheet_head">Width</th>
+                        <th class="spreedsheet_head">Height</th>
+                        <th class="spreedsheet_head">Curb_Weight</th>
+                        <th class="spreedsheet_head">Engine_Type</th>
+                        <th class="spreedsheet_head">Num_of_Cylinders</th>
+                        <th class="spreedsheet_head">Engine_Size</th>
+                        <th class="spreedsheet_head">Fuel_System</th>
+                        <th class="spreedsheet_head">Bore</th>
+                        <th class="spreedsheet_head">Stroke</th>
+                        <th class="spreedsheet_head">Compression_Ratio</th>
+                        <th class="spreedsheet_head">Horsepower</th>
+                        <th class="spreedsheet_head">Peak_rpm</th>
+                        <th class="spreedsheet_head">City_mpg</th>
+                        <th class="spreedsheet_head">Highway_mpg</th>
+                        <th class="spreedsheet_head">Horsepower_Binned</th>
+                        <th class="spreedsheet_head">Diesel</th>
+                        <th class="spreedsheet_head">Gas</th>
+                        <th class="spreedsheet_head">Normal</th>
+                        <th class="spreedsheet_head">Turbo</th>
+                </thead>
+                {% for result in spreadsheet_data %}
+                <tr>
+                    <td class="spreedsheet_row">
+                        {{ result.Symboling }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Normalized_Losses }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Make }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Num_of_Doors }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Body_Style }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Drive_Wheels }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Engine_Location }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Wheel_Base }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Length }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Width }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Height }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Curb_Weight }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Engine_Type }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Num_of_Cylinders }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Engine_Size }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Fuel_System }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Bore }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Stroke }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Compression_Ratio }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Horsepower }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Peak_rpm }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.City_mpg }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Highway_mpg }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Horsepower_Binned }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Diesel }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Gas }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Normal }}
+                    </td>
+                    <td class="spreedsheet_row">
+                        {{ result.Turbo }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+            <table class="data_info">
+                <tr>
+                    <th class="observation">Symboling	</th>
+                    <td class="obs_detail">Symbols (0,1,2,3)</td>
+                    <th class="observation">Normalized_Losses</th>
+                    <td class="obs_detail">Losses (normalized)</td>
+                    <th class="observation">Make</th>
+                    <td class="obs_detail">Brand name</td>
+                    <th class="observation">Num_of_Doors</th>
+                    <td class="obs_detail">Number of doors in car</td>
+                </tr>
+                <tr>
+                    <th class="observation">Body_Style</th>
+                    <td class="obs_detail">Body style</td>
+                    <th class="observation">Drive_Wheels</th>
+                    <td class="obs_detail">forward, rear of 4 (wheel drive)</td>
+                    <th class="observation">Engine_Location</th>
+                    <td class="obs_detail">Front or back (Engine location)</td>
+                     <th class="observation">Wheel_Base</th>
+                    <td class="obs_detail">Wheel base of car</td>
+                </tr>
+                <tr>
+                    <th class="observation">Length</th>
+                    <td class="obs_detail">Length of car in total</td>
+                    <th class="observation">Width</th>
+                    <td class="obs_detail">Width of car</td>
+                    <th class="observation">Height</th>
+                    <td class="obs_detail">Height of car</td>
+                    <th class="observation">Curb_Weight</th>
+                    <td class="obs_detail">Curb-weight of car</td>
+                </tr>
+                <tr>
+                    <th class="observation">Engine_Type</th>
+                    <td class="obs_detail">Engine type (Technical)</td>
+                    <th class="observation">Num_of_Cylinders</th>
+                    <td class="obs_detail">Number of cylinders in car</td>
+                    <th class="observation">Engine_Size</th>
+                    <td class="obs_detail">Size of engine</td>
+                    <th class="observation">Fuel_System</th>
+                    <td class="obs_detail">Fuel mechanism</td>
+                </tr>
+                <tr>
+                    <th class="observation">Bore</th>
+                    <td class="obs_detail">Bore</td>
+                    <th class="observation">Stroke</th>
+                    <td class="obs_detail">Stroke</td>
+                    <th class="observation">Compression_Ratio</th>
+                    <td class="obs_detail">Compression ratio</td>
+                    <th class="observation">Horsepower</th>
+                    <td class="obs_detail">Number of horsepower in car</td>
+                </tr>
+                <tr>
+                    <th class="observation">Peak_rpm</th>
+                    <td class="obs_detail">Maximum RPM</td>
+                    <th class="observation">City_mpg</th>
+                    <td class="obs_detail">Fuel average miles per gallon in city</td>
+                    <th class="observation">Highway_mpg</th>
+                    <td class="obs_detail">Fuel average miles per gallon in highway</td>
+                    <th class="observation">Price</th>
+                    <td class="obs_detail">Price</td>
+                </tr>
+                <tr>
+                    <th class="observation">Diesel</th>
+                    <td class="obs_detail">Diesel or gas</td>
+                    <th class="observation">Gas</th>
+                    <td class="obs_detail">Diesel or gas</td>
+                    <th class="observation">Normal</th>
+                    <td class="obs_detail">Normal or Turbo</td>
+                    <th class="observation">Turbo</th>
+                    <td class="obs_detail">Normal or Turbo</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+
+<!--    <script>-->
+<!--       let btn = document.querySelector("#btn");-->
+<!--       let sidebar = document.querySelector(".sidebar");-->
+<!--       let searchBtn = document.querySelector(".bx-search");-->
+
+<!--       btn.onclick = function() {-->
+<!--         sidebar.classList.toggle("active");-->
+<!--         if(btn.classList.contains("bx-menu")){-->
+<!--           btn.classList.replace("bx-menu" , "bx-menu-alt-right");-->
+<!--         }else{-->
+<!--           btn.classList.replace("bx-menu-alt-right", "bx-menu");-->
+<!--         }-->
+<!--       }-->
+<!--       searchBtn.onclick = function() {-->
+<!--         sidebar.classList.toggle("active");-->
+<!--       }-->
+<!--    </script>-->
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Makers', 'Bore', 'Stoke', 'HorsePower'],
+                ['alfa-romero', 3.20, 2.94, 125],
+                ['audi', 3.18, 3.40, 114],
+                ['bmw', 3.473, 3.167, 138],
+                ['chevrolet', 2.99, 3.08, 62],
+                ['dodge', 3.09, 3.36, 87],
+                ['honda', 3.02, 3.46, 81],
+                ['isuzu', 3.73, 3.32, 84],
+                ['jaguar', 3.60, 3.70, 205],
+                ['mazda', 3.29, 3.28, 86],
+                ['mercedes-benz', 3.60, 3.43, 147],
+                ['mercury', 3.78, 3.12, 175],
+                ['mitsubishi', 3.25, 3.49, 105],
+                ['nissan', 3.25, 3.3, 103],
+                ['peugot', 3.85, 3.16, 100],
+                ['plymouth', 2.97, 3.37, 87],
+                ['porsche', 3.97, 2.95, 191],
+                ['renault', 3.46, 3.90, 104],
+                ['saab', 3.37, 2.90, 127],
+                ['subaru', 3.36, 2.61, 87],
+                ['toyota', 3.05, 3.25, 93],
+                ['volkswagen', 3.13, 3.4, 82],
+                ['volvo', 3.66, 3.14, 128],
+            ]);
+            var options = {
+                title: 'Car Measurement',
+                titleTextStyle: {
+                        color: 'white',
+                        fontSize: 17
+                },
+                hAxis: {
+                    title: 'Makes',
+                    titleText: {color: 'white'},
+                    gridlines: { color: 'white' },
+                    textStyle: { color: 'grey' },
+                },
+                vAxis: {
+                    title: 'Measurement',
+                    titleTextStyle: {color: 'white'},
+                    gridlines: { color: 'transparent' },
+                    textStyle: { color: 'grey' },
+                },
+                legend: { position: 'top', alignment: 'end'},
+                legendTextStyle: { color: '#FFF', fontSize: 15},
+                curveType: 'function',
+                colors: ['white', '#32705b', '#bced09'],
+                backgroundColor: '#1f1f1f',
+                pointSize: 7,
+                chartArea:{
+                        left:100,
+                        top:70,
+                        bottom:60,
+                        right:30,
+                        width:"100%",
+                        height:"100%"
+                },
+
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<style>
+#chart_div{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    height: 400px;
+    width: 1400px;
+}
+</style>
+<body>
+</body>
+</html>
